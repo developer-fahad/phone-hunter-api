@@ -9,13 +9,55 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
+    <header class="container mx-auto">
+      <nav class="flex justify-between items-center py-5">
+          <div class="flex cursor-pointer">
+            <h1 class="text-4xl font-bold"><a href="">Phone<span class="text-accent">H</span>unter<span></a></h1>
+            <div class="">
+              <img class="h-12 pl-1  hover:shrink" src="images/phones.svg" alt=""></span>
+            </div>
+          </div>
+          <div class="flex font-medium list-none gap-8 hidden">
+            <li class="text-lg hover:text-accent"><a href="">Home</a></li>
+            <li class="text-lg hover:text-accent"><a href="">About</a></li>
+            <li class="text-lg hover:text-accent"><a href="">Products</a></li>
+            <li class="text-lg hover:text-accent"><a href="">Blog</a></li>
+          </div>
+          <div class=" flex justify-end gap-4 ">
+            <!-- <input id="search-field2" type="text" placeholder="Search your phone" class="input focus:outline-none input-accent w-full max-w-xs border-secondary focus:border-secondary"/><button onclick="handleSearch2()"  id="search-btn2" class="btn btn-secondary text-lg font-bold">Search</button> -->
 
+            <input id="search-field" type="text" placeholder="Search your phone" class="input focus:outline-none input-accent w-full max-w-xs" /><button onclick="handleSearch()" id="search-btn" class="btn btn-accent text-lg font-bold">Search</button>
+          </div>
+      </nav>
     </header>
-    <main>
+    <main class="container mx-auto">
         
+        <section>
+            <div id="loading" class="pt-12 text-center hidden">
+              <span class="loading text-accent loading-bars loading-xs"></span>
+              <span class="loading text-dark loading-bars loading-lg"></span>
+              <span class="loading text-secondary loading-bars loading-xs"></span>
+            </div>
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-between">
+                <!-- <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                    <div class="card-body">
+                      <div>
+                        <h2 class="text-lg font-bold text-center">Shoes!</h2>
+                      </div>
+                      <p class="text-center">If a dog chews shoes whose shoes does he choose?</p>
+                      <div class="card-actions justify-center">
+                        <button class="btn btn-primary">Show Details</button>
+                      </div>
+                    </div>
+                  </div> -->
+            </div>
+            <div id="show-all-container" class="py-8 text-center hidden">
+              <button class="btn btn-accent font-bold">Show All</button>
+            </div>
+        </section>
     </main>
-    <footer>
+    <footer class="w-10/12 m-auto">
 
     </footer>
 
