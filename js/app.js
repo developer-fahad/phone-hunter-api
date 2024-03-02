@@ -15,11 +15,11 @@ const defaultDisplay = (phns) =>{
     console.log(phns);
     phns.forEach(phn =>{
         const phoneCard = document.createElement('div');
-        phoneCard.classList = `card px-12 bg-base-100 shadow-xl`;
+        phoneCard.classList = `card px-1 bg-base-100 shadow-xl`;
         phoneCard.innerHTML = `
         <figure><img src="${phn.image}" alt="${phn.image}" /></figure>
-        <div class="card-body">
-            <div>
+        <div class="card-body px-3">
+            <div class="px-0 ">
             <h2 class="text-lg font-bold text-center">${phn.phone_name}</h2>
             </div>
             <p class="text-center">If a dog chews shoes whose shoes does he choose?</p>
