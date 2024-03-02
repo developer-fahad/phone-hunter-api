@@ -10,23 +10,23 @@
 </head>
 <body>
     <header class="container mx-auto">
-      <nav class="flex justify-between items-center py-5">
+      <nav class="flex flex-col lg:flex-row justify-between items-center py-5">
           <div class="flex cursor-pointer">
-            <h1 class="text-4xl font-bold"><a href="">Phone<span class="text-accent">H</span>unter<span></a></h1>
-            <div class="">
-              <img class="h-12 pl-1  hover:shrink" src="images/phones.svg" alt=""></span>
+            <h1 class="lg:text-4xl text-3xl font-bold"><a href="">Phone<span class="text-accent">H</span>unter<span></a></h1>
+            <div>
+              <img class="lg:h-12 h-9 pl-1" src="images/phones.svg" alt=""></span>
             </div>
           </div>
-          <div class="flex font-medium list-none gap-8">
+          <div class="flex font-medium lg:py-0 py-2  list-none lg:px-0 px-4 gap-2 lg:gap-8">
             <li class="text-lg hover:text-accent"><a href="">Home</a></li>
             <li class="text-lg hover:text-accent"><a href="">About</a></li>
             <li class="text-lg hover:text-accent"><a href="">Products</a></li>
             <li class="text-lg hover:text-accent"><a href="">Blog</a></li>
           </div>
-          <div class=" flex justify-end gap-4 ">
+          <div class=" flex lg:px-0 px-4 justify-end gap-4 ">
             <!-- <input id="search-field2" type="text" placeholder="Search your phone" class="input focus:outline-none input-accent w-full max-w-xs border-secondary focus:border-secondary"/><button onclick="handleSearch2()"  id="search-btn2" class="btn btn-secondary text-lg font-bold">Search</button> -->
 
-            <input id="search-field" type="text" placeholder="Search your phone" class="input focus:outline-none input-accent w-full max-w-xs" /><button onclick="handleSearch()" id="search-btn" class="btn btn-accent text-lg font-bold">Search</button>
+            <input id="search-field" type="text" placeholder="Search your phone" class="input focus:outline-none lg:placeholder:text-base placeholder:text-[12px] input-accent w-full max-w-xs" /><button onclick="handleSearch()" id="search-btn" class="btn btn-accent text-lg font-bold">Search</button>
           </div>
       </nav>
     </header>
@@ -34,9 +34,9 @@
       <section>
   
         <div class="flex justify-end gap-5 py-12">
-          <div class="px-12">
+          <!-- <div class="px-12">
             <p>Total Listings: <span id="total-listings">0</span></p>
-          </div>
+          </div> -->
           <p class="text-lg font-bold bg-accent">Search Tags: </p>
             <div class=" flex gap-5">
               <span class="bg-yellow-200">iphone</span>
@@ -75,6 +75,31 @@
               <button class="btn btn-accent font-bold">Show All</button>
             </div>
         </section>
+        <!-- Show Details Modal -->
+        <!-- You can open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="">open modal</button> -->
+        <dialog id="show_details_modal" class="modal">
+          <div class="modal-box lg:w-4/12 w-11/12 max-w-5xl">
+            <div id="phone-details-container" class=" ">
+              <!-- <div class="w-96">
+                <img src="" alt="">
+              </div>
+              <h1></h1>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p> -->
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
     </main>
     <footer class="w-10/12 m-auto">
 

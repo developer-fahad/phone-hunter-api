@@ -11,7 +11,7 @@ defaultLoad('iphone');
 
 const defaultDisplay = (phns) =>{
     const myPhoneContainer = document.getElementById('default-phone-container');
-    myPhoneContainer.innerText = '';
+    // myPhoneContainer.innerText = '';
     console.log(phns);
     phns.forEach(phn =>{
         const phoneCard = document.createElement('div');
@@ -24,7 +24,7 @@ const defaultDisplay = (phns) =>{
             </div>
             <p class="text-center">If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-center">
-            <button class="btn btn-primary">Show Details</button>
+            <button onclick = "handleShowDetails('${phn.slug}')" class="btn btn-primary">Show Details</button>
             </div>
         </div>
         `;
@@ -70,7 +70,7 @@ const displayPhones = phones =>{
             </div>
             <p class="text-center">If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions justify-center">
-            <button class="btn btn-primary">Show Details</button>
+            <button onclick = "handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
             </div>
         </div>
         `;
@@ -92,6 +92,37 @@ const handleSearch = () =>{
 //     // console.log(searchFieldText);
 //     loadPhone(searchFieldText);
 // }
+const handleShowDetails = async (id) =>{
+    // console.log('Show details', id);
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    const data = await res.json();
+    console.log('Data is: ',data);
+    const phone = data.data
+    // console.log(phone);
+    showPhoneDetails(phone);
+}
+
+const showPhoneDetails = (phone) =>{
+    console.log(phone);
+    const phoneDetailsContainer = document.getElementById('phone-details-container');
+    phoneDetailsContainer.innerHTML = `
+            <div class="py-8 px-8 flex mx-auto justify-center bg-gray-100">
+                <img src="${phone.image}" alt="">
+            </div>
+            <h1 class ="py-3 font-bold text-xl">${phone.name}</h1>
+            <p class ="py-2"><span class="font-bold">Storage: </span>${phone.mainFeatures.storage}</p>
+            <p class ="py-2"><span class="font-bold">Display Size: </span>${phone.mainFeatures.displaySize}</p>
+            <p class ="py-2"><span class="font-bold">Chipset: </span>${phone.mainFeatures.chipSet}</p>
+            <p class ="py-2"><span class="font-bold">Memory: </span>${phone.mainFeatures.memory}</p>
+            <p class ="py-2"><span class="font-bold">Slug: </span>${phone.slug}</p>
+            <p class ="py-2"><span class="font-bold">Release Date: </span>${phone.releaseDate}</p>
+            <p class ="py-2"><span class="font-bold">Brand: </span>${phone.brand}</p>
+            <p class ="py-2"><span class="font-bold">GPS: </span>${phone?.others?.GPS}</p>
+    `;
+
+    show_details_modal.showModal();
+    
+}
 
 const toggleLoading = (isLoading) =>{
     const loading = document.getElementById('loading');
